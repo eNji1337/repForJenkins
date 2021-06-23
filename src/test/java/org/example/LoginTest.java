@@ -8,7 +8,7 @@ import org.testng.annotations.Test;
 
 
 @Listeners(DefaultListener.class)
-public class LoginTests extends BaseTest {
+public class LoginTest extends BaseTest {
     /*    final String VALID_LOGIN = "@Anton41505806";
         final String VALID_PASSWORD = "password12345";*/
     @Description("Valid Login to Twitter")
@@ -20,6 +20,5 @@ public class LoginTests extends BaseTest {
                 .enterPassword(validpass)
                 .loginBtn()
                 .checkCorrectLogin();
-
     }
 }

@@ -4,7 +4,7 @@ import pages.HomePage;
 import org.testng.annotations.BeforeTest;
 import pages.HomePage;
 
-public class BaseLoginTest extends   BaseTest {
+public class BaseLogin extends   BaseTest {
     private String validLogin = "@Anton41505806";
     private String validPassword = "password12345";
 

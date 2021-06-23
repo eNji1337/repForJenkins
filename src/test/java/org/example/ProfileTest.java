@@ -4,7 +4,7 @@ import io.qameta.allure.Description;
 import org.testng.annotations.Test;
 import pages.MyAccountPage;
 
-public class ProfileTests extends BaseTest {
+public class ProfileTest extends BaseTest {
 
     final String validLogin = "@Anton41505806";
     final String validPassword = "password12345";

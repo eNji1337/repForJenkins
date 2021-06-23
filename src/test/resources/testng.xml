@@ -7,8 +7,8 @@
     </listeners>
     <test name="All tests suite">
         <classes>
-            <class name="org.example.LoginTests"/>
-            <class name="org.example.ProfileTests"/>
+            <class name="org.example.LoginTest"/>
+            <class name="org.example.ProfileTest"/>
             <class name="org.example.SendTweetTest"/>
         </classes>
     </test>

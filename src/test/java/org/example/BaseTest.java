@@ -10,9 +10,9 @@ import org.testng.annotations.BeforeClass;
 public class BaseTest {
     WebDriver driver;
 
-    public static String validlogin = PropertyHelper.getConf().valid_login();
-    public static String validpass = PropertyHelper.getConf().valid_password();
-    private static final String startUrl = PropertyHelper.getConf().startUrl();
+    static final String validlogin = PropertyHelper.getConf().valid_login();
+    static final String validpass = PropertyHelper.getConf().valid_password();
+    static final String startUrl = PropertyHelper.getConf().startUrl();
 
 
     @BeforeClass
