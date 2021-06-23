@@ -3,13 +3,13 @@
 <suite name="Tests" verbose="2" configfailurepolicy="continue">
 
     <listeners>
-        <listener class-name="com.gmail.kolesnyk.logging.DefaultListener"/>
+        <listener class-name="logger.DefaultListener"/>
     </listeners>
     <test name="All tests suite">
         <classes>
-            <class name="com.gmail.kolesnyk.AutoEraseFieldTest"/>
-            <class name="com.gmail.kolesnyk.CurrencyExchangeLossTest"/>
-            <class name="com.gmail.kolesnyk.UpdateCurrencyAccordingCountryTest"/>
+            <class name="org.example.LoginTests"/>
+            <class name="org.example.ProfileTests"/>
+            <class name="org.example.SendTweetTest"/>
         </classes>
     </test>
 </suite>
