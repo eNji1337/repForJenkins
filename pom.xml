@@ -17,8 +17,11 @@
     <selenium.version>3.141.59</selenium.version>
     <webdriver.manager>4.4.3</webdriver.manager>
     <testng>6.14.3</testng>
-    <maven.surefire.plugin>2.19.1</maven.surefire.plugin>
-    <allure.testng>2.12.1</allure.testng>
+    <allure.testng.version>2.13.8</allure.testng.version>
+    <allure.plugin.version>2.10.0</allure.plugin.version>
+    <maven-surefire-plugin.version>2.20.1</maven-surefire-plugin.version>
+    <allure.testng>2.6.0</allure.testng>
+    <aspectj.version>1.8.10</aspectj.version>
     <lombok.version>1.18.20</lombok.version>
   </properties>
 
@@ -76,7 +79,7 @@
     <dependency>
       <groupId>io.qameta.allure</groupId>
       <artifactId>allure-testng</artifactId>
-      <version>${allure.testng}</version>
+      <version>${allure.testng.version}</version>
     </dependency>
 
     <dependency>
@@ -86,12 +89,7 @@
       <scope>compile</scope>
     </dependency>
 
-    <dependency>
-      <groupId>org.testng</groupId>
-      <artifactId>testng</artifactId>
-      <version>6.14.3</version>
-      <scope>compile</scope>
-    </dependency>
+
 
   </dependencies>
 
@@ -110,12 +108,62 @@
         </plugin>
 
         <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-surefire-plugin</artifactId>
+          <version>${maven-surefire-plugin.version}</version>
+          <configuration>
+            <argLine>-javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"</argLine>
+            <systemProperties>
+              <property>
+                <name>allure.results.directory</name>
+                <value>${project.build.directory}/allure-results</value>
+              </property>
+            </systemProperties>
+          </configuration>
+          <dependencies>
+            <dependency>
+              <groupId>org.aspectj</groupId>
+              <artifactId>aspectjweaver</artifactId>
+              <version>${aspectj.version}</version>
+            </dependency>
+          </dependencies>
+        </plugin>
+
+        <plugin>
           <groupId>io.qameta.allure</groupId>
           <artifactId>allure-maven</artifactId>
-          <version>2.9</version>
+          <version>${allure.plugin.version}</version>
           <configuration>
-            <reportVersion>2.6.0</reportVersion>
+            <reportVersion>${allure.testng.version}</reportVersion>
+            <resultsDirectory>${project.basedir}/target/allure-results</resultsDirectory>
+            <allureDownloadUrl>
+              https://repo.maven.apache.org/maven2/io/qameta/allure/allure-commandline/${allure.testng.version}/allure-commandline-${allure.testng.version}.zip
+            </allureDownloadUrl>
           </configuration>
+        </plugin>
+
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-surefire-plugin</artifactId>
+          <version>${maven.surfire.version}</version>
+          <configuration>
+            <suiteXmlFiles>
+              <suiteXmlFile>src/test/resources/testng.xml</suiteXmlFile>
+            </suiteXmlFiles>
+            <argLine>
+              -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
+            </argLine>
+            <systemPropertyVariables>
+              <allure.results.directory>${project.basedir}/target/allure-results</allure.results.directory>
+            </systemPropertyVariables>
+          </configuration>
+          <dependencies>
+            <dependency>
+              <groupId>org.aspectj</groupId>
+              <artifactId>aspectjweaver</artifactId>
+              <version>${aspectj.version}</version>
+            </dependency>
+          </dependencies>
         </plugin>
 
         <plugin>
