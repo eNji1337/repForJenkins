@@ -5,6 +5,7 @@ import pages.HomePage;
 import io.qameta.allure.Description;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
+import pages.LoginPage;
 
 
 @Listeners(DefaultListener.class)
@@ -14,11 +15,7 @@ public class LoginTest extends BaseTest {
     @Description("Valid Login to Twitter")
     @Test
     public void validLogin() {
-        new HomePage(driver)
-                .goToLoginPage()
-                .enterEmail(validlogin)
-                .enterPassword(validpass)
-                .loginBtn()
+        new LoginPage(driver)
                 .checkCorrectLogin();
     }
 }

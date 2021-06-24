@@ -32,6 +32,7 @@ public class LoginPage extends BasePage {
         loginBtn.click();
         return this;
     }
+
     @Step("Enter email")
     public LoginPage enterEmail(String Login){
         inputEmail.sendKeys(Login);

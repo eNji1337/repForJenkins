@@ -1,5 +1,7 @@
 package org.example;
 
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeTest;
 import pages.HomePage;
 import pages.PropertyHelper;
 import driver.DriverFactory;
@@ -17,16 +19,13 @@ public class BaseTest {
 
     @BeforeClass
     public void beforeClass() {
-        //WebDriverManager.chromedriver().setup();
         WebDriver driver = DriverFactory.getDriver();
-        //driver = new ChromeDriver();
-        new HomePage(driver);
         driver.get(startUrl);
-
-        /*ChromeOptions options = new ChromeOptions();
-        RemoteWebDriver chromeDriver = new ChromeDriver(options);
-        chromeDriver.setLogLevel(Level.INFO);
-        driver = new EventFiringWebDriver(chromeDriver);*/
+        new HomePage(driver)
+                .goToLoginPage()
+                .enterEmail(validlogin)
+                .enterPassword(validpass)
+                .loginBtn();
     }
 
     @AfterClass
