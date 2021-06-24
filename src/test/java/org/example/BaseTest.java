@@ -17,7 +17,7 @@ public class BaseTest {
     static final String startUrl = PropertyHelper.getConf().startUrl();
 
 
-    @BeforeClass
+    @BeforeTest
     public void beforeClass() {
         WebDriver driver = DriverFactory.getDriver();
         driver.get(startUrl);
