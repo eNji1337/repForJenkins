@@ -1,14 +1,11 @@
 package org.example;
 
-import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.BeforeTest;
-import pages.HomePage;
-import pages.PropertyHelper;
 import driver.DriverFactory;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import pages.HomePage;
+import pages.PropertyHelper;
 
 public class BaseTest {
     WebDriver driver;
@@ -17,9 +14,8 @@ public class BaseTest {
     static final String validpass = PropertyHelper.getConf().valid_password();
     static final String startUrl = PropertyHelper.getConf().startUrl();
 
-
     @BeforeClass
-    public void beforeClass() {
+    public void beforeClass() throws InterruptedException {
         WebDriver driver = DriverFactory.getDriver();
         driver.get(startUrl);
         new HomePage(driver)
@@ -28,7 +24,6 @@ public class BaseTest {
                 .enterPassword(validpass)
                 .loginBtn();
     }
-
     @AfterClass
     public void afterClass() {
         DriverFactory.tearDown();

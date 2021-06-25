@@ -11,7 +11,7 @@ public class SendTweetTest extends BaseTest {
     @Test
     public void sendTweet() {
         new MyAccountPage(driver)
-            .sendTweetBtn()
-            .tweetMsgInput();
+                .sendTweetBtn()
+                .tweetMsgInput();
     }
 }

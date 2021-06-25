@@ -29,12 +29,14 @@ public class LoginPage extends BasePage {
 
     @Step("Log in after entering email and password")
     public LoginPage loginBtn(){
+
         loginBtn.click();
         return this;
     }
 
     @Step("Enter email")
-    public LoginPage enterEmail(String Login){
+    public LoginPage enterEmail(String Login) throws InterruptedException {
+        Thread.sleep(2000);
         inputEmail.sendKeys(Login);
         return this;
     }
@@ -43,4 +45,5 @@ public class LoginPage extends BasePage {
         inputPassword.sendKeys(Password);
         return this;
     }
+
 }

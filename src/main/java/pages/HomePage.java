@@ -15,11 +15,12 @@ public class HomePage extends BasePage {
     @FindBy(xpath = "//span[text()='Войти']")
     public WebElement logInButton;
 
+
+
     @Step("Click on the 'Log in' button")
     public LoginPage goToLoginPage() {
         logInButton.click();
-
         return new LoginPage(driver);
-
     }
+
 }

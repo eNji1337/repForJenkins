@@ -50,5 +50,4 @@ public class MyAccountPage extends BasePage {
         editProfileBtn.click();
         return this;
     }
-
 }

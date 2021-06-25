@@ -1,5 +1,6 @@
 package driver;
 
+import org.openqa.selenium.support.ui.WebDriverWait;
 import pages.AppConfig;
 import pages.PropertyHelper;
 import io.github.bonigarcia.wdm.WebDriverManager;
@@ -24,13 +25,14 @@ public class DriverFactory {
             if (config.webDriverBrowserName().equalsIgnoreCase(Browsers.CHROME.getName())) {
                 WebDriverManager.chromedriver().setup();
                 driver = new ChromeDriver();
-            } else if (config.webDriverBrowserName().equalsIgnoreCase(Browsers.FIREFOX.getName())) {
+            }
+            else if (config.webDriverBrowserName().equalsIgnoreCase(Browsers.FIREFOX.getName())) {
                 WebDriverManager.firefoxdriver().setup();
                 driver = new FirefoxDriver();
-            } else {
+            }
+            else {
                 throw new IllegalArgumentException(config.webDriverBrowserName() + " is not supported");
             }
-
             driver.manage().timeouts().pageLoadTimeout(config.pageLoadTimeout(), TimeUnit.SECONDS);
             driver.manage().timeouts().implicitlyWait(config.elementTimeout(), TimeUnit.SECONDS);
             driver.manage().timeouts().setScriptTimeout(config.elementTimeout(), TimeUnit.SECONDS);
