@@ -1,5 +1,6 @@
 package org.example;
 
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
 import pages.HomePage;
@@ -17,7 +18,7 @@ public class BaseTest {
     static final String startUrl = PropertyHelper.getConf().startUrl();
 
 
-    @BeforeTest
+    @BeforeClass
     public void beforeClass() {
         WebDriver driver = DriverFactory.getDriver();
         driver.get(startUrl);
