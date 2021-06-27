@@ -1,14 +1,13 @@
 package driver;
 
-import org.openqa.selenium.support.ui.WebDriverWait;
-import pages.AppConfig;
-import pages.PropertyHelper;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import pages.AppConfig;
+import pages.PropertyHelper;
 
 import java.util.concurrent.TimeUnit;
 
@@ -34,7 +33,7 @@ public class DriverFactory {
                 throw new IllegalArgumentException(config.webDriverBrowserName() + " is not supported");
             }
             driver.manage().timeouts().pageLoadTimeout(config.pageLoadTimeout(), TimeUnit.SECONDS);
-            driver.manage().timeouts().implicitlyWait(config.elementTimeout(), TimeUnit.SECONDS);
+            driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
             driver.manage().timeouts().setScriptTimeout(config.elementTimeout(), TimeUnit.SECONDS);
             driver.manage().window().maximize();
         }

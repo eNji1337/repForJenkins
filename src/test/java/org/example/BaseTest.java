@@ -1,7 +1,9 @@
 package org.example;
 
 import driver.DriverFactory;
+import logger.DefaultListener;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import pages.HomePage;
@@ -18,6 +20,7 @@ public class BaseTest {
     public void beforeClass() throws InterruptedException {
         WebDriver driver = DriverFactory.getDriver();
         driver.get(startUrl);
+
         new HomePage(driver)
                 .goToLoginPage()
                 .enterEmail(validlogin)

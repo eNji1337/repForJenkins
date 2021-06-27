@@ -3,6 +3,7 @@ import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
 public class LoginPage extends BasePage {
@@ -29,21 +30,22 @@ public class LoginPage extends BasePage {
 
     @Step("Log in after entering email and password")
     public LoginPage loginBtn(){
-
+        logger.info("Click on the LogIn button after entering valid login and password");
         loginBtn.click();
         return this;
     }
 
     @Step("Enter email")
     public LoginPage enterEmail(String Login) throws InterruptedException {
-        Thread.sleep(2000);
+        Thread.sleep(1500);
+        logger.info("Enter valid email in the Email field");
         inputEmail.sendKeys(Login);
         return this;
     }
     @Step("Enter password")
     public LoginPage enterPassword(String Password){
+        logger.info("Enter valid password in the Password field");
         inputPassword.sendKeys(Password);
         return this;
     }
-
 }

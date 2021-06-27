@@ -4,14 +4,14 @@ import io.qameta.allure.Description;
 import org.testng.annotations.Test;
 import pages.MyAccountPage;
 
-public class ProfileTest extends BaseTest {
-
+public class ChangeProfileNameTest extends BaseTest {
     @Description("Change profile name")
     @Test
-    public void ChangeProfileName() {
+    public void changeProfileName() {
         new MyAccountPage(driver)
                 .profileBtn()
                 .profileEditBtn()
-                .profileNameInput();
+                .profileNameInput()
+                .saveBtnProfilePage();
     }
 }

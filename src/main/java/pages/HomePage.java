@@ -19,8 +19,8 @@ public class HomePage extends BasePage {
 
     @Step("Click on the 'Log in' button")
     public LoginPage goToLoginPage() {
+        logger.info("Click on the 'Log in' button");
         logInButton.click();
         return new LoginPage(driver);
     }
-
 }

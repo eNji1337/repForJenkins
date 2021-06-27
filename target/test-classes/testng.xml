@@ -8,8 +8,10 @@
     <test name="All tests suite">
         <classes>
             <class name="org.example.LoginTest"/>
-            <class name="org.example.ProfileTest"/>
-            <class name="org.example.SendTweetTest"/>
+           <!-- <class name="org.example.ChangeProfileNameTest"/>
+            <class name="org.example.ChangeProfileBioTest"/>
+            <class name="org.example.ChangeProfileLocationTest"/>
+            <class name="org.example.SendTweetTest"/>-->
         </classes>
     </test>
 </suite>

@@ -18,6 +18,7 @@ public class DefaultListener implements ITestListener {
     public void onTestSuccess(ITestResult result) {
         saveTextLog(getTestMethodName(result) + " test passed success");
     }
+    @Attachment(value = "Page screenshot", type = "image/png")
     @Override
     public void onTestFailure(ITestResult result) {
         saveTextLog(getTestMethodName(result) + " failed");
