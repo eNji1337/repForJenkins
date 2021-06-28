@@ -10,15 +10,15 @@ import pages.HomePage;
 import pages.PropertyHelper;
 
 public class BaseTest {
-    WebDriver driver;
+   public static WebDriver  driver;
 
     static final String validlogin = PropertyHelper.getConf().valid_login();
     static final String validpass = PropertyHelper.getConf().valid_password();
     static final String startUrl = PropertyHelper.getConf().startUrl();
 
     @BeforeClass
-    public void beforeClass() throws InterruptedException {
-        WebDriver driver = DriverFactory.getDriver();
+    public void beforeClass()  {
+        driver = DriverFactory.getDriver();
         driver.get(startUrl);
 
         new HomePage(driver)

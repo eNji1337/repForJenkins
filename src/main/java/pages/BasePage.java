@@ -8,11 +8,12 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public abstract class BasePage {
+    WebDriver driver;
 
     public static Logger logger = LoggerFactory.getLogger(WebDriver.class);
 
     public BasePage(WebDriver driver) {
         PageFactory.initElements(DriverFactory.getDriver(), this);
+        this.driver = driver;
     }
-
 }

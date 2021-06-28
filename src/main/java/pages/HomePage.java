@@ -6,7 +6,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 public class HomePage extends BasePage {
-    WebDriver driver;
 
     public HomePage(WebDriver driver) {
         super(driver);
@@ -14,8 +13,6 @@ public class HomePage extends BasePage {
 
     @FindBy(xpath = "//span[text()='Войти']")
     public WebElement logInButton;
-
-
 
     @Step("Click on the 'Log in' button")
     public LoginPage goToLoginPage() {
